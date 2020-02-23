@@ -342,9 +342,11 @@ func NewKernel() *DosKernel {
 	k := &DosKernel{
 		KernelBase: &co.KernelBase{},
 		fds: map[int]int{
-			0: 0,
-			1: 1,
-			2: 2,
+			0: 0,	// STDIN
+			1: 1,	// STDOUT
+			2: 2,	// STDERR
+			3: 1,	// STDAUX
+			4: 1	// STDPRN
 		},
 	}
 	// Invert the syscall map
